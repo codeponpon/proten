@@ -27,7 +27,7 @@
               <tr>
                 <td><%= link_to p.name, property_path(p.id) %></td>
                 <td><%= p.country  %></td>
-                <td></td>
+                <td><%= number_to_currency p.tenants.sum(:base_rent) %></td>
               </tr>
             <% end %>
           <% end %>

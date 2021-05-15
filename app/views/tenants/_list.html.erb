@@ -1,0 +1,25 @@
+<h5 class="mb-3">Tenants</h5>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Floor</th>
+      <th scope="col">Monthly rent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if tenants.blank? %>
+    <tr>
+      <td colspan="3" class="text-center"><p>There is no data</p></td>
+    </tr>
+    <% else %>
+    <% tenants.each do |t| %>
+    <tr>
+      <td><%= link_to t.name, property_tenant_path(property.id, t.id) %></td>
+      <td><%= t.floor  %></td>
+      <td><%= number_to_currency t.base_rent %></td>
+    </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   
   get 'uploads', to: 'uploads#index'
   post 'upload', to: 'uploads#upload'
-  resources :properties
+  resources :properties do 
+    resources :tenants, only: :show
+  end
   root to: 'properties#index'
 end

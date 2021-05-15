@@ -14,7 +14,7 @@ class UploadsController < ApplicationController
     end
 
     if tenn.present?
-
+      Tenant.import(tenn)
     end
 
     redirect_to properties_url, notice: "Data Imported"
