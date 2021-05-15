@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <%= link_to "Upload Data", uploads_path, class: "btn btn-primary"%>
+    <p class="lead"></p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 order-md-1 mb-4"></div>
+    <div class="col-md-8 order-md-2">
+      <h4 class="mb-3">Properties</h4>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Country</th>
+            <th scope="col">Monthly rent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @properties.blank? %>
+            <tr>
+              <td colspan="3" class="text-center"><p>There is no data</p></td>
+            </tr>
+          <% else %>
+            <% @properties.each do |p| %>
+              <tr>
+                <td><%= link_to p.name, property_path(p.id) %></td>
+                <td><%= p.country  %></td>
+                <td></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-2 order-md-3 mb-4"></div>
+  </div>
+</div>

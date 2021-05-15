@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <%= link_to "Go to Properties", properties_path, class: "btn btn-primary"%>
+    <p class="lead"></p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 order-md-1 mb-4"></div>
+    <div class="col-md-8 order-md-2">
+      <h4 class="mb-3">Data upload</h4>
+      <%= form_with url: "/upload", method: :post do |f| %>
+        <div class="row">
+          <div class="col-md-8 mb-3 order-md-1">
+            <%= f.label :prop, "Properties", class: "col-2 p-0" %>
+            <%= f.file_field :prop, class: "col-6", required: true %>
+          </div>
+          <div class="col-4 order-md-2">
+            <%= f.submit "Upload", class: "btn btn-primary" %>
+          </div>  
+        </div>
+      <% end %>
+      <%= form_with url: "/upload", method: :post do |f| %>
+        <div class="row">
+          <div class="col-md-8 mb-3 order-md-1">
+            <%= f.label :tenn, "Tenants", class: "col-2 p-0" %>
+            <%= f.file_field :tenn, class: "col-6", required: true %>
+          </div>
+          <div class="col-4 order-md-2">
+            <%= f.submit "Upload", class: "btn btn-primary" %>
+          </div>  
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-2 order-md-3 mb-4"></div>
+  </div>
+</div>
