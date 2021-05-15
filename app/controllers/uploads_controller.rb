@@ -10,11 +10,11 @@ class UploadsController < ApplicationController
     tenn = params[:tenn]
 
     if prop.present?
-      Property.import(prop)
+      Property.import_data(prop)
     end
 
     if tenn.present?
-      Tenant.import(tenn)
+      Tenant.import_data(tenn)
     end
 
     redirect_to properties_url, notice: "Data Imported"
