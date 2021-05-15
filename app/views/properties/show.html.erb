@@ -8,66 +8,8 @@
   <div class="row">
     <div class="col-md-2 order-md-1 mb-4"></div>
     <div class="col-md-8 order-md-2">
-      <h4 class="mb-3"><%= @property.name %></h4>
-      <ul class="list-group mb-3">
-        <li class="mb-3 d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0"><b>Name:</b> <%= @property.name %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0"><b>External ID:</b> <%= @property.external_id %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0"><b>Property Type:</b> <%= @property.property_type %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between bg-light">
-          <div>
-            <h6 class="my-0"><b>City:</b> <%= @property.city %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between bg-light">
-          <div>
-            <h6 class="my-0"><b>Country:</b> <%= @property.country %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between bg-light">
-          <div>
-            <h6 class="my-0"><b>Acquisition Price:</b> <%= number_to_currency @property.price %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between bg-light">
-          <div>
-            <h6 class="my-0"><b>Leasable area:</b> <%= number_to_human @property.leasable_area, units: {unit: "m2"}, delimiter: ',', separator: '.' %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between bg-light">
-          <div>
-            <h6 class="my-0"><b>Acquired on:</b> <%= @property.acquired_on.strftime("%b %d, %Y") %></h6>
-          </div>
-        </li>
-      </ul>
-      <ul class="list-group mb-3">
-        <li class="mb-3 d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0"><b>Leased area:</b> <%= number_to_human @property.tenants.sum(:leasable_area), units: {unit: "m2"}, delimiter: ',' %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0"><b>Occupancy rate:</b> <%= number_to_percentage (@property.tenants.sum(:leasable_area)*100) / @property.leasable_area, precision: 2 %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0"><b>Total monthly rent:</b> <%= number_to_currency @property.tenants.sum(:base_rent) %></h6>
-          </div>
-        </li>
-      </ul>
+      <h4 class="mb-3"><%= @property_decorated.wrapped.name %></h4>
+      <%= render partial: 'properties/details' %>
     </div>
     <div class="col-md-2 order-md-3 mb-4"></div>
   </div>
@@ -75,7 +17,10 @@
   <div class="row">
     <div class="col-md-2 order-md-1 mb-4"></div>
     <div class="col-md-8 order-md-2">
-      <%= render partial: 'tenants/list', locals: {property: @property, tenants: @property.tenants} %>
+      <%= render partial: 'tenants/list', locals: {
+        property: @property, 
+        tenants: TenantDecorator.decorate_collection(@property_decorated.wrapped.tenants)
+      } %>
     </div>
     <div class="col-md-2 order-md-3 mb-4"></div>
   </div>

@@ -1,0 +1,59 @@
+<ul class="list-group mb-3">
+  <li class="mb-3 d-flex justify-content-between lh-condensed">
+    <div>
+      <h6 class="my-0">
+        <b>Name:</b> <%= 
+        @tenant_decorate.wrapped.name %></h6>
+      </div>
+    </li>
+    <li class="mb-3 d-flex justify-content-between lh-condensed">
+      <div>
+        <h6 class="my-0">
+          <b>External ID:</b> 
+          <%= @tenant_decorate.wrapped.external_id %></h6>
+        </div>
+      </li>
+      <li class="mb-3 d-flex justify-content-between lh-condensed">
+        <div>
+          <!-- TODO: Use Deligate -->
+          <h6 class="my-0">
+            <b>Property ID:</b> 
+            <%= @tenant_decorate.wrapped.property.external_id %></h6>
+          </div>
+        </li>
+        <li class="mb-3 d-flex justify-content-between bg-light">
+          <div>
+            <h6 class="my-0">
+              <b>Tenant Type:</b> 
+              <%= @tenant_decorate.wrapped.tenant_type %></h6>
+            </div>
+          </li>
+          <li class="mb-3 d-flex justify-content-between bg-light">
+            <div>
+              <h6 class="my-0">
+                <b>Floor:</b> <%= 
+                @tenant_decorate.wrapped.floor %></h6>
+              </div>
+            </li>
+            <li class="mb-3 d-flex justify-content-between bg-light">
+              <div>
+                <h6 class="my-0">
+                  <b>Leasable area:</b> 
+                  <%= @tenant_decorate.leasable_area %></h6>
+                </div>
+              </li>
+              <li class="mb-3 d-flex justify-content-between bg-light">
+                <div>
+                  <h6 class="my-0">
+                    <b>Lease commenced on:</b>
+                    <%= @tenant_decorate.lease_commenced_on %></h6>
+                  </div>
+                </li>
+                <li class="mb-3 d-flex justify-content-between bg-light">
+                  <div>
+                    <h6 class="my-0">
+                      <b>Base rent:</b> 
+                      <%= @tenant_decorate.base_rent %></h6>
+                    </div>
+                  </li>
+                </ul>

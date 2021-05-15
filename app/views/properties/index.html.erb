@@ -25,9 +25,9 @@
           <% else %>
             <% @properties.each do |p| %>
               <tr>
-                <td><%= link_to p.name, property_path(p.id) %></td>
-                <td><%= p.country  %></td>
-                <td><%= number_to_currency p.tenants.sum(:base_rent) %></td>
+                <td><%= link_to p.wrapped.name, property_path(p.wrapped.id) %></td>
+                <td><%= p.wrapped.country  %></td>
+                <td><%= p.monthly_rent %></td>
               </tr>
             <% end %>
           <% end %>

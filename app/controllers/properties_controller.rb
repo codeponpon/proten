@@ -2,31 +2,19 @@ class PropertiesController < ApplicationController
   skip_before_action :authenticate_account!
   skip_before_action :set_sentry_user
 
-  before_action :property, only: [:show, :edit, :destroy]
+  before_action :property, only: [:show]
 
   def index
-    @properties = Property.all
-  end
-
-  def create
-    @property = Property.new
+    @properties = PropertyDecorator.decorate_collection(Property.all)
   end
 
   def show
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   private
 
   def property
     @property ||= Property.find(params[:id])
+    @property_decorated ||= PropertyDecorator.new(@property)
   end
 end

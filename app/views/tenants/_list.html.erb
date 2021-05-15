@@ -15,9 +15,9 @@
     <% else %>
     <% tenants.each do |t| %>
     <tr>
-      <td><%= link_to t.name, property_tenant_path(property.id, t.id) %></td>
-      <td><%= t.floor  %></td>
-      <td><%= number_to_currency t.base_rent %></td>
+      <td><%= link_to t.wrapped.name, property_tenant_path(property.id, t.wrapped.id) %></td>
+      <td><%= t.wrapped.floor  %></td>
+      <td><%= t.base_rent %></td>
     </tr>
     <% end %>
     <% end %>

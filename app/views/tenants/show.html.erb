@@ -1,57 +1,15 @@
 <div class="container">
   <div class="py-5 text-center">
     <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <%= link_to "Go back to #{@tenant.property.name}", property_path(@tenant.property), class: "btn btn-primary"%>
+    <%= link_to "Go back to #{@tenant_decorate.wrapped.property.name}", property_path(@tenant_decorate.wrapped.property), class: "btn btn-primary"%>
     <p class="lead"></p>
   </div>
 
   <div class="row">
     <div class="col-md-2 order-md-1 mb-4"></div>
     <div class="col-md-8 order-md-2">
-      <h4 class="mb-3"><%= @tenant.name %></h4>
-      <ul class="list-group mb-3">
-        <li class="mb-3 d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0"><b>Name:</b> <%= @tenant.name %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0"><b>External ID:</b> <%= @tenant.external_id %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between lh-condensed">
-          <div>
-            <!-- TODO: Use Deligate -->
-            <h6 class="my-0"><b>Property ID:</b> <%= @tenant.property.external_id %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between bg-light">
-          <div>
-            <h6 class="my-0"><b>Tenant Type:</b> <%= @tenant.tenant_type %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between bg-light">
-          <div>
-            <h6 class="my-0"><b>Floor:</b> <%= @tenant.floor %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between bg-light">
-          <div>
-            <h6 class="my-0"><b>Leasable area:</b> <%= @tenant.leasable_area %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between bg-light">
-          <div>
-            <h6 class="my-0"><b>Lease commenced on:</b> <%= @tenant.lease_commenced_on.strftime("%b %d, %Y") %></h6>
-          </div>
-        </li>
-        <li class="mb-3 d-flex justify-content-between bg-light">
-          <div>
-            <h6 class="my-0"><b>Base rent:</b> <%= number_to_currency @tenant.base_rent %></h6>
-          </div>
-        </li>
-      </ul>
+      <h4 class="mb-3"><%= @tenant_decorate.wrapped.name %></h4>
+      <%= render partial: 'tenants/details' %>
     </div>
     <div class="col-md-2 order-md-3 mb-4"></div>
   </div>

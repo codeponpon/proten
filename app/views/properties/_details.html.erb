@@ -1,0 +1,81 @@
+<ul class="list-group mb-3">
+  <li class="mb-3 d-flex justify-content-between lh-condensed">
+    <div>
+      <h6 class="my-0">
+        <b>Name:</b> 
+        <%= @property_decorated.wrapped.name %></h6>
+    </div>
+  </li>
+  <li class="mb-3 d-flex justify-content-between lh-condensed">
+    <div>
+      <h6 class="my-0">
+        <b>External ID:</b> 
+        <%= @property_decorated.wrapped.external_id %></h6>
+    </div>
+  </li>
+  <li class="mb-3 d-flex justify-content-between lh-condensed">
+    <div>
+      <h6 class="my-0">
+        <b>Property Type:</b> 
+        <%= @property_decorated.wrapped.property_type %></h6>
+    </div>
+  </li>
+  <li class="mb-3 d-flex justify-content-between bg-light">
+    <div>
+      <h6 class="my-0">
+        <b>City:</b> 
+        <%= @property_decorated.wrapped.city %></h6>
+    </div>
+  </li>
+  <li class="mb-3 d-flex justify-content-between bg-light">
+    <div>
+      <h6 class="my-0">
+        <b>Country:</b> 
+        <%= @property_decorated.wrapped.country %></h6>
+    </div>
+  </li>
+  <li class="mb-3 d-flex justify-content-between bg-light">
+    <div>
+      <h6 class="my-0">
+        <b>Acquisition Price:</b> 
+        <%= @property_decorated.acquisition_price %></h6>
+    </div>
+  </li>
+  <li class="mb-3 d-flex justify-content-between bg-light">
+    <div>
+      <h6 class="my-0">
+        <b>Leasable area:</b> 
+        <%= @property_decorated.leasable_area %></h6>
+    </div>
+  </li>
+  <li class="mb-3 d-flex justify-content-between bg-light">
+    <div>
+      <h6 class="my-0">
+        <b>Acquired on:</b> 
+        <%= @property_decorated.acquired_on %></h6>
+    </div>
+  </li>
+</ul>
+<ul class="list-group mb-3">
+  <li class="mb-3 d-flex justify-content-between lh-condensed">
+    <div>
+      <h6 class="my-0">
+        <b>Leased area:</b> 
+        <%= @property_decorated.leased_area %></h6>
+    </div>
+  </li>
+  <li class="mb-3 d-flex justify-content-between lh-condensed">
+    <div>
+      <h6 class="my-0">
+        <b>Occupancy rate:</b> 
+        <%= @property_decorated.occupancy_rate%></h6>
+    </div>
+  </li>
+  <li class="mb-3 d-flex justify-content-between lh-condensed">
+    <div>
+      <h6 class="my-0">
+        <b>Total monthly rent:
+        </b> <%= @property_decorated.total_monthly_rent %></h6>
+    </div>
+  </li>
+</ul>
