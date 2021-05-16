@@ -1,12 +1,14 @@
+require 'csv'
+
 module Importable
   extend ActiveSupport::Concern
 
   included do
     def self.import_data(file)
-      class_name = self.class_name
-      data = data_builder(file, class_name)
+      klass = self.name
+      data = data_builder(file, klass)
 
-      case class_name
+      case klass
       when "Property"
         Property.upsert_all(data, unique_by: :external_id)
       when "Tenant"

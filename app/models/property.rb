@@ -1,4 +1,3 @@
-require 'csv'
 class Property < ApplicationRecord
   include Importable
   has_many :tenants, dependent: :destroy
