@@ -14,7 +14,11 @@ class PropertiesController < ApplicationController
   private
 
   def property
-    @property ||= Property.find(params[:id])
+    @property ||= properties.find(params[:id])
     @property_decorated ||= PropertyDecorator.new(@property)
+  end
+
+  def properties
+    @properties ||= PropertiesQuery.new
   end
 end
