@@ -10,7 +10,11 @@ class TenantsController < ApplicationController
   private
 
   def tenant
-    @tenant ||= Tenant.find(params[:id])
+    @tenant ||= tenants.find(params[:id])
     @tenant_decorate ||= TenantDecorator.new(@tenant)
+  end
+
+  def tenants
+    @tenants ||= TenantsQuery.new
   end
 end

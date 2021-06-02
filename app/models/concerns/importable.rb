@@ -20,11 +20,12 @@ module Importable
   class_methods do
     def data_builder(file, model)
       data = []
+      properties = PropertiesQuery.new
       CSV.foreach(file.path, headers: true) do |row|
         data << if model.eql?('Property') 
           property_data(row) 
         else
-          property = Property.find_by(external_id: row[2])
+          property = properties.find_by(external_id: row[2])
           next if property.blank?
           tenant_data(row, property)
         end
